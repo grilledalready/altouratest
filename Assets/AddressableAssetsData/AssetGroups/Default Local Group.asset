@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e03a3012a1e27534eac1f225f3689a55
+  m_SerializeEntries:
+  - m_GUID: 1a8c3e6b59f66ae458c98d4e709bf3dd
+    m_Address: Assets/Models/textures/internal_ground_ao_texture.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75f66600d33eb8847bef7f8f016d47a5
+    m_Address: Assets/Models/textures/Krathong_BaseColor_0.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f9894bd92fcda541bb807ef265ee8a9
+    m_Address: Assets/Models/source/Krathong.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a2a88434af8e21449f01490981f0526
+    m_Address: Assets/Videos/Video.mp4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d19e896e9a057aa4487fc750e3a4916c
+    m_Address: Assets/Prefabs/VideoStreamingPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4cd53e18cd4eda748bb582d669eef4e3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e19096f88fb9d5448b61a57b01350281, type: 2}
+    - {fileID: 11400000, guid: 8c2f63fb9b7eca845834349ffc890af7, type: 2}
