@@ -18,3 +18,4 @@ MonoBehaviour:
   - Assets/Models/textures/internal_ground_ao_texture.jpeg
   - Assets/Models/textures/Krathong_BaseColor_0.jpeg
   videoPrefabPath: Assets/Prefabs/VideoStreamingPanel.prefab
+  arenaPath: Assets/Models/source/vr_theater.glb

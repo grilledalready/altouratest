@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public SpawnPositions spawnPositions;
     private void OnEnable()
     {
         WorldCanvasController.OnStateChangedEvent += SetCameraPosition;
@@ -19,15 +20,15 @@ public class CameraController : MonoBehaviour
         switch (currentState)
         {
             case WorldCanvasState.TEXT:
-                transform.position = new Vector3(-0.75F, 0.5F, -1.5F);
+                transform.position = spawnPositions.playerStartPosition;
                 break;
 
             case WorldCanvasState.IMAGE:
-                transform.position = new Vector3(-0.75F, 0.5F, -1.5F);
+                transform.position = spawnPositions.playerStartPosition;
                 break;
 
             case WorldCanvasState.TELEPORT:
-                transform.position = new Vector3(0.75F, 0.5F, -1.5F);
+                transform.position = spawnPositions.playerTeleportPosition;
                 break;
 
         }

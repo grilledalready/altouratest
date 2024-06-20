@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfa4724ad4aaf00469c03de680f0009e
+    m_Address: Assets/Models/source/vr_theater.glb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4cd53e18cd4eda748bb582d669eef4e3, type: 2}
   m_SchemaSet:

@@ -9,4 +9,6 @@ public class AssetReferences : ScriptableObject
     public string[] glbTexturesPath;
 
     public string videoPrefabPath;
+
+    public string arenaPath;
 }

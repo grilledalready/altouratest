@@ -10,13 +10,13 @@ public class WorldCanvasUI : MonoBehaviour
     public GameObject image;
     public GameObject mainPanel;
 
+    public SpawnPositions spawnPositions;
+
     private void OnEnable()
     {
         WorldCanvasController.OnStateChangedEvent += DisplayUI;
         HomepageManager.OnGLBModeSetEvent += EnableUI;
     }
-
-  
 
     private void OnDisable()
     {
@@ -31,17 +31,17 @@ public class WorldCanvasUI : MonoBehaviour
             case WorldCanvasState.TEXT:
                 showText.SetActive(true);
                 image.SetActive(false);
-                transform.position = new Vector3(-0.75F, 0, 0);
+                transform.position = spawnPositions.panelStartPosition;
                 break;
 
             case WorldCanvasState.IMAGE:
                 showText.SetActive(true);
                 image.SetActive(true);
-                transform.position = new Vector3(-0.75F, 0, 0);
+                transform.position = spawnPositions.panelStartPosition;
                 break;
 
             case WorldCanvasState.TELEPORT:
-                transform.position = new Vector3(0.75F, 0, 0);
+                transform.position = spawnPositions.panelTeleportPosition;
                 break;
 
         }

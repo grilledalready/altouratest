@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bce7b10ec0b6454285748af18fafea3, type: 3}
+  m_Name: SpawnPositions
+  m_EditorClassIdentifier: 
+  playerStartPosition: {x: 2.3, y: 3, z: 0}
+  panelStartPosition: {x: 11, y: 5, z: 0}
+  playerTeleportPosition: {x: 2.3, y: 3, z: 3}
+  panelTeleportPosition: {x: 11, y: 5, z: 3}
+  sampleGLBSpawnPosition: {x: 9, y: 0.3, z: 0}
+  sampleGLBSpawnScale: {x: 5, y: 5, z: 5}

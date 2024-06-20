@@ -14,9 +14,15 @@ public class AddressablePrefabLoader : MonoBehaviour
 
     private GameObject loadedPrefabInstance;
 
+
+    Vector3 positonToLoad;
+    Vector3 scaleToLoad;
+
     // Method to load the prefab
-    public void LoadPrefab(string prefabAddress)
+    public void LoadPrefab(string prefabAddress, Vector3 positon = default, Vector3 scale = default)
     {
+        positonToLoad = positon;
+        scaleToLoad = scale;
         Addressables.LoadAssetAsync<GameObject>(prefabAddress).Completed += OnPrefabLoaded;
     }
 
@@ -26,6 +32,8 @@ public class AddressablePrefabLoader : MonoBehaviour
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             loadedPrefabInstance = Instantiate(handle.Result);
+            loadedPrefabInstance.transform.position = positonToLoad;
+            loadedPrefabInstance.transform.localScale = scaleToLoad;
             Debug.Log("Prefab loaded and instantiated successfully.");
         }
         else
