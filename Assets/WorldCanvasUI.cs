@@ -8,6 +8,7 @@ public class WorldCanvasUI : MonoBehaviour
 {
     public GameObject showText;
     public GameObject image;
+    public GameObject finalText;
     public GameObject mainPanel;
 
     public SpawnPositions spawnPositions;
@@ -29,19 +30,27 @@ public class WorldCanvasUI : MonoBehaviour
         switch (currentState)
         {
             case WorldCanvasState.TEXT:
+                finalText.SetActive(false);
+                showText.SetActive(false);
                 showText.SetActive(true);
                 image.SetActive(false);
                 transform.position = spawnPositions.panelStartPosition;
                 break;
 
             case WorldCanvasState.IMAGE:
+                finalText.SetActive(false);
                 showText.SetActive(true);
+                image.SetActive(false);
                 image.SetActive(true);
                 transform.position = spawnPositions.panelStartPosition;
                 break;
 
             case WorldCanvasState.TELEPORT:
-                transform.position = spawnPositions.panelTeleportPosition;
+                image.SetActive(false);
+                showText.SetActive(false);
+                finalText.SetActive(true);
+                transform.position = spawnPositions.sampleGLBSpawnPosition;
+                transform.Translate(0, 5, 2F);
                 break;
 
         }

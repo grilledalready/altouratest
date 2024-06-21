@@ -16,5 +16,5 @@ MonoBehaviour:
   panelStartPosition: {x: 11, y: 5, z: 0}
   playerTeleportPosition: {x: 2.3, y: 3, z: 3}
   panelTeleportPosition: {x: 11, y: 5, z: 3}
-  sampleGLBSpawnPosition: {x: 9, y: 0.3, z: 0}
+  sampleGLBSpawnPosition: {x: 21, y: 0.3, z: -55}
   sampleGLBSpawnScale: {x: 5, y: 5, z: 5}

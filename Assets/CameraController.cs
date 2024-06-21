@@ -28,7 +28,8 @@ public class CameraController : MonoBehaviour
                 break;
 
             case WorldCanvasState.TELEPORT:
-                transform.position = spawnPositions.playerTeleportPosition;
+                transform.position = spawnPositions.sampleGLBSpawnPosition;
+                transform.Translate(0,3,-10F);
                 break;
 
         }

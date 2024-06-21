@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.UIElements;
+using static LoadAddressableGLB;
 
 public class LoadAddressableGLB : MonoBehaviour
 {
@@ -21,22 +21,27 @@ public class LoadAddressableGLB : MonoBehaviour
         position = position == default ? Vector3.zero : position;
         scale = scale == default ? Vector3.one : scale;
         loadParameters[glbAddress] = (position, scale);
-
-        Addressables.LoadAssetAsync<GameObject>(glbAddress).Completed += OnGLBLoaded;
+        print(glbAddress);
+        var handle = Addressables.LoadAssetAsync<GameObject>(glbAddress);
+        var wrappedHandle = new WrappedHandle<GameObject>(handle, glbAddress);
+        handle.Completed += (op) => OnGLBLoaded(wrappedHandle);
     }
 
-    void OnGLBLoaded(AsyncOperationHandle<GameObject> obj)
+    void OnGLBLoaded(WrappedHandle<GameObject> wrappedHandle)
     {
         print("Loaded");
+        var obj = wrappedHandle.Handle;
         if (obj.Status == AsyncOperationStatus.Succeeded)
         {
             GameObject glbTextAsset = obj.Result;
             GameObject newAsset = Instantiate(glbTextAsset);
-           
-            if (loadParameters.TryGetValue(obj.DebugName, out var parameters))
+
+            string address = wrappedHandle.Address;
+            if (loadParameters.TryGetValue(address, out var parameters))
             {
                 PositionNewAsset(newAsset, parameters.position, parameters.scale);
-                loadParameters.Remove(obj.DebugName);
+                loadParameters.Remove(address);
+                print(address);
             }
 
             SpawnedObjectsManager.Instance.AddObject(newAsset);
@@ -52,4 +57,18 @@ public class LoadAddressableGLB : MonoBehaviour
         asset.transform.position = position;
         asset.transform.localScale = scale;
     }
+
+    public class WrappedHandle<T>
+    {
+        public AsyncOperationHandle<T> Handle { get; private set; }
+        public string Address { get; private set; }
+
+        public WrappedHandle(AsyncOperationHandle<T> handle, string address)
+        {
+            Handle = handle;
+            Address = address;
+        }
+    }
 }
+
+
