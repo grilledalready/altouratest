@@ -1,48 +1,27 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class AddressablePrefabLoader : MonoBehaviour
+public class AddressablePrefabLoader : AddressableLoaderBase
 {
     public static AddressablePrefabLoader Instance;
+
+    private GameObject loadedPrefabInstance;
 
     private void Awake()
     {
         Instance = this;
     }
 
-
-    private GameObject loadedPrefabInstance;
-
-
-    Vector3 positonToLoad;
-    Vector3 scaleToLoad;
-
-    // Method to load the prefab
-    public void LoadPrefab(string prefabAddress, Vector3 positon = default, Vector3 scale = default)
+    public void LoadPrefab(string prefabAddress, Vector3 position = default, Vector3 scale = default)
     {
-        positonToLoad = positon;
-        scaleToLoad = scale;
-        Addressables.LoadAssetAsync<GameObject>(prefabAddress).Completed += OnPrefabLoaded;
+        LoadAsset(prefabAddress, position, scale);
     }
 
-    // Callback when the prefab is loaded
-    private void OnPrefabLoaded(AsyncOperationHandle<GameObject> handle)
+    protected override void HandleLoadedAsset(GameObject asset)
     {
-        if (handle.Status == AsyncOperationStatus.Succeeded)
-        {
-            loadedPrefabInstance = Instantiate(handle.Result);
-            loadedPrefabInstance.transform.position = positonToLoad;
-            loadedPrefabInstance.transform.localScale = scaleToLoad;
-            Debug.Log("Prefab loaded and instantiated successfully.");
-        }
-        else
-        {
-            Debug.LogError("Failed to load prefab.");
-        }
+        loadedPrefabInstance = asset;
     }
 
-    // Method to unload the prefab
     public void UnloadPrefab()
     {
         if (loadedPrefabInstance != null)
